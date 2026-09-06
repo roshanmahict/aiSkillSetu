@@ -1,20 +1,25 @@
-"""
-Django settings for aiskillsetu project.
-"""
-
-from pathlib import Path
 import os
+import dj_database_url
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables from .env file (for local development)
+load_dotenv()
 
 # Build paths
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-x-r!#b)_&^bo+u654cg_n2q4(w1s-n(br*cl^$c^8o*l__*xwf'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-fallback-key-for-local')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '.vercel.app',
+    'localhost',
+    '127.0.0.1',
+]
 
 # Application definition
 INSTALLED_APPS = [
@@ -36,7 +41,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',   # ← add at top
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -66,17 +71,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'aiskillsetu.wsgi.application'
 
-# Database – PostgreSQL with PostGIS
+# -------------------------------------------------------------------
+# ✅ DATABASE: Uses DATABASE_URL environment variable (Neon, Supabase, etc.)
+# -------------------------------------------------------------------
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'pyrec_aiskillsetu',
-        'USER': 'pyrec_aiskillsetu_user',
-        'PASSWORD': 'pyrecuser_aiskillsetu2026',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(
+        default='postgresql://pyrec_aiskillsetu_user:pyrecuser_aiskillsetu2026@localhost:5432/pyrec_aiskillsetu',
+        conn_max_age=600
+    )
 }
+
+# If you are using PostGIS, uncomment this line:
+# DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
+
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
@@ -84,35 +91,37 @@ CKEDITOR_CONFIGS = {
         'width': '100%',
     },
 }
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
 }
-# Custom user model
+
 AUTH_USER_MODEL = 'accounts.User'
 
-# Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
+
 AUTHENTICATION_BACKENDS = [
     'accounts.backends.EmailOrPhoneBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # NOT console
+# Email Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'roshan.mahict@gmail.com'
-EMAIL_HOST_PASSWORD = 'vilvuwcppiscdcsb'  # NO spaces!
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 ADMIN_EMAIL = 'roshan.mahict@gmail.com'
+
 # Internationalization
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
@@ -121,12 +130,13 @@ USE_TZ = True
 
 # Static files
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Media files (for ImageField)
+# Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# GDAL / GEOS libraries (adjust for Intel Mac if needed)
+# GDAL / GEOS libraries (for local development)
 GDAL_LIBRARY_PATH = '/opt/homebrew/lib/libgdal.dylib'
 GEOS_LIBRARY_PATH = '/opt/homebrew/lib/libgeos_c.dylib'
 
@@ -134,6 +144,7 @@ GEOS_LIBRARY_PATH = '/opt/homebrew/lib/libgeos_c.dylib'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:3001",
+    "https://*.vercel.app",
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
