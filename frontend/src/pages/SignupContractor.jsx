@@ -54,7 +54,7 @@ const SignupContractor = () => {
       // Remove confirmPassword before sending to backend
       delete payload.confirmPassword;
 
-      const res = await axios.post('http://127.0.0.1:8001/api/auth/register/', payload);
+      const res = await axios.post('/api/auth/register/', payload);
       localStorage.setItem('access_token', res.data.access);
       localStorage.setItem('refresh_token', res.data.refresh);
       login(res.data.user);

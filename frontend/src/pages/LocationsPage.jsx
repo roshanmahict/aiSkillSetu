@@ -13,7 +13,7 @@ const LocationsPage = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const res = await axios.get(`http://127.0.0.1:8001/api/page-content/${cleanSlug}/`);
+        const res = await axios.get(`/api/page-content/${cleanSlug}/`);
         setPageData(res.data);
         setError('');
       } catch (err) {
@@ -66,7 +66,7 @@ const LocationsPage = () => {
         <div style={styles.contentCard}>
           {pageData?.image && (
             <img 
-              src={`http://127.0.0.1:8001/media/${pageData.image}`} 
+              src={`/media/${pageData.image}`} 
               alt={pageData.title} 
               style={styles.featuredImage}
             />

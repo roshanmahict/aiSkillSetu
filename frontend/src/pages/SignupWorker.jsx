@@ -144,7 +144,7 @@ const SignupWorker = () => {
     data.append('trade', JSON.stringify(trades));
 
     try {
-      const res = await axios.post('http://127.0.0.1:8001/api/auth/register/', data, {
+      const res = await axios.post('/api/auth/register/', data, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 

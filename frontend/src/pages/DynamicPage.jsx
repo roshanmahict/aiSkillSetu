@@ -13,7 +13,7 @@ const DynamicPage = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const res = await axios.get(`http://127.0.0.1:8001/api/page-content/${cleanSlug}/`);
+        const res = await axios.get(`/api/page-content/${cleanSlug}/`);
         setPageData(res.data);
         setError('');
       } catch {
@@ -48,7 +48,7 @@ const DynamicPage = () => {
 
   const getImageUrl = (image) => {
     if (!image) return null;
-    return image.startsWith('http') ? image : `http://127.0.0.1:8001/media/${image}`;
+    return image.startsWith('http') ? image : `/media/${image}`;
   };
   return (
     <div style={pageStyles.container}>
@@ -75,7 +75,7 @@ const DynamicPage = () => {
           {/* Optional Image */}
           {pageData?.image && (
             <img 
-              src={`http://127.0.0.1:8001/media/${pageData.image}`} 
+              src={`/media/${pageData.image}`} 
               alt={pageData.title} 
               style={pageStyles.heroImage}
             />

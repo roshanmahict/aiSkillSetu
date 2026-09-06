@@ -26,7 +26,7 @@ const ProfilePage = () => {
   const fetchProfile = async () => {
     try {
       const token = localStorage.getItem('access_token');
-      const res = await axios.get('http://127.0.0.1:8001/api/profile/', {
+      const res = await axios.get('/api/profile/', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProfile(res.data);
@@ -68,7 +68,7 @@ const ProfilePage = () => {
         trade: trades,
         description: description,
       };
-      const res = await axios.patch('http://127.0.0.1:8001/api/profile/', payload, {
+      const res = await axios.patch('/api/profile/', payload, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSuccess('Profile updated successfully!');

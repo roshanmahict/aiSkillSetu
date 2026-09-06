@@ -15,7 +15,7 @@ const ForgotPassword = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post('http://127.0.0.1:8001/api/auth/request-reset-email/', { phone });
+      const res = await axios.post('/api/auth/request-reset-email/', { phone });
       setMessage(res.data.message || 'Reset link sent to your email if registered.');
     } catch (err) {
       setError(err.response?.data?.error || 'Something went wrong. Please try again.');

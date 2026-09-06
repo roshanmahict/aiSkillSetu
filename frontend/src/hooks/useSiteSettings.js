@@ -8,7 +8,7 @@ export const useSiteSettings = () => {
   useEffect(() => {
     const fetchSettings = async () => {
       try {
-        const res = await axios.get('http://127.0.0.1:8001/api/site-settings/');
+        const res = await axios.get('http://127.0.0/api/site-settings/');
         setSettings(res.data);
       } catch (err) {
         console.warn('Failed to load site settings:', err);

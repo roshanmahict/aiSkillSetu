@@ -33,7 +33,7 @@ const Signup = () => {
       } else {
         delete payload.phone; // optional for companies
       }
-      const res = await axios.post('http://127.0.0.1:8001/api/auth/register/', payload);
+      const res = await axios.post('/api/auth/register/', payload);
 
       // Store tokens
       localStorage.setItem('access_token', res.data.access);
