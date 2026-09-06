@@ -18,7 +18,7 @@ httpcore==0.9.1
 httpx==0.13.3
 hyperframe==5.2.0
 idna==2.10
-pillow==10.2.0
+pillow>=10.4.0
 psycopg2-binary==2.9.9
 PyJWT==2.13.0
 python-dotenv==1.0.0
