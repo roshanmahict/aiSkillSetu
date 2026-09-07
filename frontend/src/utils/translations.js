@@ -80,7 +80,6 @@ export const translations = {
     heroLead: 'Find trusted, verified workers near you.',
     heroFeatures: 'Zero fraud • Aadhaar verified • Company-controlled travel',
     getStarted: 'Get Started',
-    viewServices: 'View Services',
     needHelper: 'Need Helper?',
     helperDesc: 'Post projects, find verified workers.',
     loginCompany: 'Login as Company',
@@ -95,17 +94,8 @@ export const translations = {
     recentProjects: 'Recent Projects',
     verified: 'Verified',
      platformTagline: "Jharkhand's Smart Labour Platform",
-    heroTitle: 'Connecting Skills, Building Dreams',
-    heroLead: 'Find trusted, verified workers near you.',
-    heroFeatures: 'Zero fraud • Aadhaar verified • Company-controlled travel',
-    getStarted: 'Get Started',
     viewServices: 'View Services',
     needHelper: 'Need Helper?',
-    helperDesc: 'Post projects, find verified workers.',
-    loginCompany: 'Login as Company',
-    lookingWork: 'Looking for Work?',
-    labourDesc: 'Find projects, earn daily.',
-    loginLabour: 'Login as Labour',
 
 
     // Safety Section
