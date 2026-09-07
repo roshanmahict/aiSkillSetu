@@ -50,7 +50,7 @@ function App() {
 
             <Route path="/:slug" element={<DynamicPage />} />
             <Route path="/" element={<HomePage />} />
-<Route path="/home" element={<Navigate to="/" replace />} />  // ← Add this
+<Route path="/home" element={<Navigate to="/" replace />} />  
 
             {/* ✅ 6. 404 FALLBACK */}
             <Route path="*" element={<NotFound />} />
