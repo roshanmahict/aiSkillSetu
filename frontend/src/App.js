@@ -5,7 +5,6 @@ import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import HomePage from './pages/HomePage';
-import AreasWeServe from './pages/AreasWeServe';
 import LocationsPage from './pages/LocationsPage';
 import DynamicPage from './pages/DynamicPage';
 import ContactPage from './pages/ContactPage';

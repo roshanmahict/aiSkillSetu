@@ -62,10 +62,10 @@ const Footer = () => {
         <div style={styles.bottomContainer}>
           <span>© 2026 <strong style={styles.brandStrong}>Anita Labour Service</strong>. All rights reserved.</span>
           <div style={styles.socialLinks}>
-            <a href="#" style={styles.socialIcon}><i className="fab fa-facebook-f"></i></a>
-            <a href="#" style={styles.socialIcon}><i className="fab fa-twitter"></i></a>
-            <a href="#" style={styles.socialIcon}><i className="fab fa-instagram"></i></a>
-            <a href="#" style={styles.socialIcon}><i className="fab fa-youtube"></i></a>
+            <a href="/" style={styles.socialIcon}><i className="fab fa-facebook-f"></i></a>
+            <a href="/" style={styles.socialIcon}><i className="fab fa-twitter"></i></a>
+            <a href="/" style={styles.socialIcon}><i className="fab fa-instagram"></i></a>
+            <a href="/" style={styles.socialIcon}><i className="fab fa-youtube"></i></a>
           </div>
         </div>
       </div>
