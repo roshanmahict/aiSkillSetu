@@ -1,4 +1,4 @@
-#!/Users/roshan/aiSkillSetu/backend/venv/bin/python3.12
+#!/Users/roshan/aiSkillSetu/backend/venv/bin/python3
 # -*- coding: utf-8 -*-
 import argparse
 import sys

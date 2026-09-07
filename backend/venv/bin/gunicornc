@@ -1,4 +1,4 @@
-#!/Users/roshan/aiSkillSetu/backend/venv/bin/python3.12
+#!/Users/roshan/aiSkillSetu/backend/venv/bin/python3
 import sys
 from gunicorn.ctl.cli import main
 if __name__ == '__main__':

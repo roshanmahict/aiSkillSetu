@@ -1,11 +1,12 @@
-from django.contrib.gis.db import models
+from django.db import models
+
 from django.conf import settings
 
 class Project(models.Model):
     company = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, limit_choices_to={'role':'company'})
     title = models.CharField(max_length=200)
     description = models.TextField()
-    location = models.PointField(srid=4326)
+    location = models.CharField(max_length=255, blank=True)   # temporary
     address = models.CharField(max_length=255)
     district = models.CharField(max_length=50)
     required_skills = models.JSONField(default=list)

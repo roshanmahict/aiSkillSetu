@@ -3,8 +3,8 @@ from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
 from ckeditor.fields import RichTextField
 from googletrans import Translator
-from .utils import translate_to_hindi
-from django.db import models
+#from .utils import translate_to_hindi
+#from django.db import models
 
 from ckeditor.fields import RichTextField  # <-- IMPORT THIS
 from django.core.exceptions import ValidationError
@@ -137,16 +137,16 @@ class Service(models.Model):
     order = models.IntegerField(default=0)
     is_active = models.BooleanField(default=True)
 
-    def save(self, *args, **kwargs):
+    #def save(self, *args, **kwargs):
         # Auto‑translate to Hindi if Hindi fields are empty
-        if self.name_en and not self.name_hi:
-            self.name_hi = translate_to_hindi(self.name_en)
-        if self.description_en and not self.description_hi:
-            self.description_hi = translate_to_hindi(self.description_en)
-        super().save(*args, **kwargs)
+      #  if self.name_en and not self.name_hi:
+       #     self.name_hi = translate_to_hindi(self.name_en)
+       # if self.description_en and not self.description_hi:
+         #   self.description_hi = translate_to_hindi(self.description_en)
+        #super().save(*args, **kwargs)
 
-    def __str__(self):
-        return self.name_en
+    #def __str__(self):
+      #  return self.name_en
 
   
 
