@@ -65,9 +65,9 @@ const Navbar = () => {
       </button>
 
       <nav className={mobileOpen ? 'open' : ''}>
-        {menu.map((item) => (
-          <RenderMenuItem key={item.id} item={item} lang={lang} toggleLanguage={toggleLanguage} t={t} />
-        ))}
+        {Array.isArray(menu) && menu.map((item) => (
+  <RenderMenuItem key={item.id} item={item} lang={lang} toggleLanguage={toggleLanguage} t={t} />
+))}
 
         {user ? (
           // Logged in – show profile + logout

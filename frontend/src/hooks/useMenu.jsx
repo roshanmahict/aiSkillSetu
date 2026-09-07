@@ -10,7 +10,9 @@ export const useMenu = () => {
     const fetchMenu = async () => {
       try {
         const response = await axios.get('/api/menu/');
-        setMenu(response.data);
+        // ✅ Ensure menu is always an array
+        const data = response.data;
+        setMenu(Array.isArray(data) ? data : []);
         setLoading(false);
       } catch (err) {
         setError(err.message);
