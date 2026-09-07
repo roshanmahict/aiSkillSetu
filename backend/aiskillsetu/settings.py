@@ -2,7 +2,7 @@ import os
 import dj_database_url
 from pathlib import Path
 from dotenv import load_dotenv
-
+import os
 # Load environment variables from .env file (for local development)
 load_dotenv()
 
@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.postgres', 
     'rest_framework',
     'corsheaders',
     'core',
@@ -149,3 +148,8 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.onrender.com,localhost,127.0.0.1').split(',')
+
+print("🔵 DEBUG is:", DEBUG)
+print("🔵 ALLOWED_HOSTS are:", ALLOWED_HOSTS)
+print("🔵 ROOT_URLCONF is:", ROOT_URLCONF)

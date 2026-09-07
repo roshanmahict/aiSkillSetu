@@ -21,10 +21,7 @@ from core.views import ConfirmPasswordReset, RequestPasswordResetEmail, WorkerPr
 from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 from django.conf import settings
-from django.http import HttpResponse
 
-def home(request):
-    return HttpResponse("Django is running!")
 
 
 
