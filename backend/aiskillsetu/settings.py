@@ -149,7 +149,6 @@ CORS_ALLOWED_ORIGINS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.onrender.com,localhost,127.0.0.1').split(',')
-
 print("🔵 DEBUG is:", DEBUG)
 print("🔵 ALLOWED_HOSTS are:", ALLOWED_HOSTS)
 print("🔵 ROOT_URLCONF is:", ROOT_URLCONF)
