@@ -21,11 +21,22 @@ from core.views import ConfirmPasswordReset, RequestPasswordResetEmail, WorkerPr
 from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 from django.conf import settings
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Django is running!")
 
 
 
+ALLOWED_HOSTS = [
+    '.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
 
 urlpatterns = [
+        path('', home, name='home'),  # <-- Add this line first
+
     path('admin/', admin.site.urls),
     path('api/menu/', MenuView.as_view(), name='menu'),
     path('api/menu/<int:pk>/', MenuItemDetailView.as_view(), name='menu-item-detail'),
