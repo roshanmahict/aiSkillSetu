@@ -19,6 +19,8 @@ import ProfilePage from './pages/ProfilePage';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import MenuEditor from './components/admin/MenuEditor';
+import BlogPage from './pages/BlogPage';
+import BlogDetail from './pages/BlogDetail';
 
 function App() {
   return (
@@ -51,7 +53,8 @@ function App() {
             <Route path="/:slug" element={<DynamicPage />} />
             <Route path="/" element={<HomePage />} />
 <Route path="/home" element={<Navigate to="/" replace />} />  
-
+<Route path="/blog" element={<BlogPage />} />
+<Route path="/blog/:slug" element={<BlogDetail />} />
             {/* ✅ 6. 404 FALLBACK */}
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'bookings',
     'payments',
     'ckeditor',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -155,3 +156,4 @@ ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.onrender.com,localhost,127.0.0
 print("🔵 DEBUG is:", DEBUG)
 print("🔵 ALLOWED_HOSTS are:", ALLOWED_HOSTS)
 print("🔵 ROOT_URLCONF is:", ROOT_URLCONF)
+DEBUG = True

@@ -70,20 +70,16 @@ nav {
   display: flex !important;
   flex-wrap: nowrap !important;
   align-items: center !important;
-  gap: 0.8rem 1.5rem !important;
-  flex: 1 1 auto;
+  gap: 0.3rem 0.8rem !important;
   overflow-x: auto !important;
-  -webkit-overflow-scrolling: touch !important;
-  justify-content: flex-end;
+  justify-content: flex-end !important;
 }
-nav a {
-  font-weight: 600;
-  font-size: 1rem;
-  color: #2a4a5a;
-  transition: 0.2s;
-  cursor: pointer;
-  padding: 0.4rem 0;
-  border-bottom: 2px solid transparent;
+
+nav a,
+.nav-item {
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
+  font-size: 0.85rem !important;
 }
 nav a:hover, nav a.active {
   color: #f39c12;

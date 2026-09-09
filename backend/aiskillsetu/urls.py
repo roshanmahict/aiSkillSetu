@@ -16,12 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from blog.views import BlogDetailAPIView, BlogListAPIView,BlogCategoryListAPIView
 from core.views import ConfirmPasswordReset, RequestPasswordResetEmail, WorkerProfileView, MenuView, MenuItemDetailView,PageContentView, ServiceListView,ContactView,RegisterView, LoginView
 from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 from django.conf import settings
 from django.http import HttpResponse
+
 
 def home(request):
     return HttpResponse("Django is running!")
@@ -46,6 +47,9 @@ urlpatterns = [
      path('api/auth/register/', RegisterView.as_view(), name='register'),
     path('api/auth/login/', LoginView.as_view(), name='login'),
     path('api/profile/', WorkerProfileView.as_view(), name='profile'),
+    path('api/blog/categories/', BlogCategoryListAPIView.as_view(), name='blog-categories'),
+    path('api/blog/', BlogListAPIView.as_view(), name='blog-list'),
+    path('api/blog/<slug:slug>/', BlogDetailAPIView.as_view(), name='blog-detail'),
     path('api/auth/request-reset-email/', RequestPasswordResetEmail.as_view(), name='request-reset-email'),
     path('api/auth/confirm-reset-password/', ConfirmPasswordReset.as_view(), name='confirm-reset-password'),
 ]

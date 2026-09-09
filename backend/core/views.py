@@ -14,8 +14,9 @@ from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 from django.core.mail import send_mail
-from django.conf import settings
 from django.contrib.auth import get_user_model
+from rest_framework import generics
+from rest_framework.permissions import AllowAny
 from .serializers import (
     MenuItemSerializer,
     PageContentSerializer,
@@ -475,3 +476,6 @@ class SiteSettingsView(APIView):
             'head_html': settings.head_html,
             'body_end_html': settings.body_end_html,
         })
+
+
+
