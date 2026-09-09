@@ -37,10 +37,10 @@ class BlogPostDetailSerializer(serializers.ModelSerializer):
             'id', 'title', 'slug', 'author_name', 'category_name',
             'featured_image_url', 'excerpt', 'content',
             'meta_title', 'meta_description',
-         'published_at'
+            'published_at'
         ]
 
-    def get_featured_image(self, obj):
+    def get_featured_image_url(self, obj):  # ✅ Fixed: method name matches field name
         if obj.featured_image:
             request = self.context.get('request')
             if request:
